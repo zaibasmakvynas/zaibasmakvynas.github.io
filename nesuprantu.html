@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body><canvas id="myCanvas" width="800" height="800" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas>
+<h1>Čia yra mygtukas kurį paspaudėme: <span id="mygtukas"></span></h1>
+<script>
+//Canvas ir javascript sąsaja
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");//Kintamųjų deklaracija
+var x_coord = 300;
+var y_coord = 300;
+var x_speed = 0;
+var y_speed = 0;//Kvadrato piešimo funkcijos deklaracija
+function pieskKvadrateli(e) {
+ctx.clearRect(0, 0, 800, 800);
+x_coord += x_speed;
+y_coord += y_speed;
+ctx.fillStyle = 'rgb(255, 0, 0)';
+ctx.fillRect(x_coord, y_coord, 100, 50);
+setTimeout(pieskKvadrateli, 30)
+}pieskKvadrateli();function spaustiMygtuka(e) {
+document.getElementById("mygtukas").innerHTML = e.code;
+if (e.code == "ArrowDown") {
+y_speed = 10;
+}
+if (e.code == "ArrowUp") {
+y_speed = -10;
+}
+if (e.code == "ArrowLeft") {
+x_speed = -10;
+}
+if (e.code == "ArrowRight") {
+x_speed = 10;
+}
+}function atleistiMygtuka(e) {
+document.getElementById("mygtukas").innerHTML = e.code;
+if (e.code == "ArrowDown") {
+y_speed = 0;
+}
+if (e.code == "ArrowUp") {
+y_speed = 0;
+}
+if (e.code == "ArrowLeft") {
+x_speed = 0;
+}
+if (e.code == "ArrowRight") {
+x_speed = 0;
+}
+}document.addEventListener("keydown", spaustiMygtuka);
+document.addEventListener("keyup", atleistiMygtuka);
+</script></body>
+</html>
