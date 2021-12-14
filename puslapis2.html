@@ -2,11 +2,72 @@
 <html>
 	<head>
 		<title> MAKVYNAS  </title> 
+		<link rel="stylesheet" href="makvyno.css">
+		
 	</head>
-<h1>Makvynas yra labai greita mašina iš tokio filmo žaibas makvynas</h1>
+<h1>Makvynas yra labai greita mašina iš tokio filmo ratai</h1>
 <p>ši mašina yra raudona ir jo numeris yra 95.</p>
-<img src="makvynas.JPG" alt="makvynas" width="500" height="333">
+<img src="makvynas.JPG" alt="makvynas" width="600" height="444">               
+<p>Kaip matote makvynas moka dainuoti, šokti, ir greitai važiuoti. Kaip tik visko ko reikia.Paspaudę nuorodą tuo įsitikinsite.</p>
+<canvas id="myCanvas" width="800" height="800" style="display: block; position: absolute; right: 100px; top: 100px; border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas>
+<a href="https://www.youtube.com/watch?v=Ed_NviIUBnY title="Go to W3Schools HTML section">brum brum</a>
+<input id="a"   type="number"  value="0" oninput="sudek();">    +    <input id="b"   type="number"  value="0" oninput="sudek();">    =    <h1 id="ats"></h1>
+<script>
 
+var a = document.getElementById("a");
+var b = document.getElementById("b");
+var ats = document.getElementById("ats");
+function sudek() {
+ats.innerHTML = parseInt(a.value) + parseInt(b.value);
+}
+
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");//Kintamųjų deklaracija
+var x_coord = 300;
+var y_coord = 300;
+var x_speed = 0;
+var y_speed = 0;//Kvadrato piešimo funkcijos deklaracija
+function pieskKvadrateli(e) {
+ctx.clearRect(0, 0, 800, 800);
+x_coord += x_speed;
+y_coord += y_speed;
+ctx.fillStyle = 'rgb(255, 0, 0)';
+ctx.fillRect(x_coord, y_coord, 100, 50);
+setTimeout(pieskKvadrateli, 30)
+}pieskKvadrateli();function spaustiMygtuka(e) {
+if (e.code == "ArrowDown") {
+y_speed = 10;
+}
+if (e.code == "ArrowUp") {
+y_speed = -10;
+}
+if (e.code == "ArrowLeft") {
+x_speed = -10;
+}
+if (e.code == "ArrowRight") {
+x_speed = 10;
+}
+}function atleistiMygtuka(e) {
+if (e.code == "ArrowDown") {
+y_speed = 0;
+}
+if (e.code == "ArrowUp") {
+y_speed = 0;
+}
+if (e.code == "ArrowLeft") {
+x_speed = 0;
+}
+if (e.code == "ArrowRight") {
+x_speed = 0;
+}
+}document.addEventListener("keydown", spaustiMygtuka);
+document.addEventListener("keyup", atleistiMygtuka);
+
+
+</script>
 
 	</body>
 	
