@@ -9,7 +9,7 @@
 <p>ši mašina yra raudona ir jo numeris yra 95.</p>
 <img src="makvynas.jpg" alt="makvynas" width="600" height="444">               
 <p>Kaip matote makvynas moka dainuoti, šokti, ir greitai važiuoti. Kaip tik visko ko reikia.Paspaudę nuorodą tuo įsitikinsite.</p>
-<canvas id="myCanvas" width="200" height="200" style="display: block; position: absolute; right: 50px; top: 50px; border:1px solid #000000;">
+<canvas id="myCanvas" width="400" height="400" style="display: block; position: absolute; right: 50px; top: 50px; border:1px solid #000000;">
 Your browser does not support the HTML canvas tag.
 </canvas>
 <a href="https://www.youtube.com/watch?v=Ed_NviIUBnY title="Go to W3Schools HTML section">brum brum</a>
@@ -32,35 +32,27 @@ function pieskKvadrateli(e) {
 ctx.clearRect(0, 0, 700, 700);
 x_coord += x_speed;
 y_coord += y_speed;
-ctx.fillStyle = 'rgb(265, 0, 0)';
+ctx.fillStyle = 'rgb(70, 70, 70)';
 ctx.fillRect(x_coord, y_coord, 100, 50);
 setTimeout(pieskKvadrateli, 30)
 }pieskKvadrateli();function spaustiMygtuka(e) {
 if (e.code == "ArrowDown") {
-y_speed = 10;
-}
+y_speed = 10;}
 if (e.code == "ArrowUp") {
-y_speed = -10;
-}
+y_speed = -10;}
 if (e.code == "ArrowLeft") {
-x_speed = -10;
-}
+x_speed = -10;}
 if (e.code == "ArrowRight") {
-x_speed = 10;
-}
+x_speed = 10;}
 }function atleistiMygtuka(e) {
 if (e.code == "ArrowDown") {
-y_speed = 50;
-}
+y_speed = 50;}
 if (e.code == "ArrowUp") {
-y_speed = 50;
-}
+y_speed = 50;}
 if (e.code == "ArrowLeft") {
-x_speed = 50;
-}
+x_speed = 50;}
 if (e.code == "ArrowRight") {
-x_speed = 50;
-			  }
+x_speed = 50;}
 }document.addEventListener("keydown", spaustiMygtuka);
 document.addEventListener("keyup", atleistiMygtuka);
 
