@@ -1,2 +1,105 @@
-<iframe width="420" height="345" src=https://www.youtube.com/watch?v=CaW8AaWayj8>
-</iframe>
+<!DOCTYPE html>
+<html>
+<body style="background-color:Skyblue;">
+
+
+
+
+<h1>Čia yra mygtukas kurį paspaudėme: <span id="mygtukas"></span></h1>
+<canvas id="myCanvas" width="1081" height="400" style="border:3px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas>
+
+
+
+<script>
+
+
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+
+
+
+
+
+var x_coord = 500;
+var y_coord = 150;
+var x_speed = 0;
+var y_speed = 0;
+
+
+
+
+
+
+function pieskKvadrateli(e) {
+ctx.clearRect(0, 0, 800, 800);
+x_coord += x_speed;
+y_coord += y_speed;
+ctx.fillStyle = 'rgb(238, 130, 238)';
+ctx.fillRect(x_coord, y_coord, 150, 70);
+setTimeout(pieskKvadrateli, 30)
+}
+
+
+
+
+
+pieskKvadrateli();
+
+
+
+
+
+function spaustiMygtuka(e) {
+document.getElementById("mygtukas").innerHTML = e.code;
+if (e.code == "ArrowDown") {
+y_speed = 10;
+}
+if (e.code == "ArrowUp") {
+y_speed = -10;
+}
+if (e.code == "ArrowLeft") {
+x_speed = -10;
+}
+if (e.code == "ArrowRight") {
+x_speed = 10;
+}
+}
+
+
+
+
+
+function atleistiMygtuka(e) {
+document.getElementById("mygtukas").innerHTML = e.code;
+if (e.code == "ArrowDown") {
+y_speed = 0;
+}
+if (e.code == "ArrowUp") {
+y_speed = 0;
+}
+if (e.code == "ArrowLeft") {
+x_speed = 0;
+}
+if (e.code == "ArrowRight") {
+x_speed = 0;
+}
+}
+
+
+
+
+
+document.addEventListener("keydown", spaustiMygtuka);
+document.addEventListener("keyup", atleistiMygtuka);
+</script>
+
+
+
+
+
+</body>
+</html>
