@@ -26,38 +26,55 @@ var ats = document.getElementById("ats");
 function sudek() {
 ats.innerHTML = parseInt(a.value) + parseInt(b.value);
 }
+var a = document.getElementById("a");
+var b = document.getElementById("b");
+var ats = document.getElementById("ats");
+function sudek() {
+ats.innerHTML = parseInt(a.value) + parseInt(b.value);
+}
+
+
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");//Kintamųjų deklaracija
 var x_coord = 300;
 var y_coord = 300;
-var x_speed = 300;
+var x_speed = 0;
 var y_speed = 0;//Kvadrato piešimo funkcijos deklaracija
 function pieskKvadrateli(e) {
-ctx.clearRect(0, 0, 800, 800);
+ctx.fillStyle = 'rgb(70, 70, 70)';
+ctx.fillRect(0,0,800,800);
 x_coord += x_speed;
 y_coord += y_speed;
-ctx.fillStyle = 'rgb(75, 70, 70)';
-ctx.fillRect(x_coord, y_coord, 100, 100);
-setTimeout(pieskKvadrateli, 0)
+ctx.fillStyle = 'rgb(255, 0, 0)';
+ctx.fillRect(x_coord, y_coord, 100, 50);
+setTimeout(pieskKvadrateli, 30)
 }pieskKvadrateli();function spaustiMygtuka(e) {
 if (e.code == "ArrowDown") {
-y_speed = 10;}
+y_speed = 50;
+}
 if (e.code == "ArrowUp") {
-y_speed = -10;}
+y_speed = -50;
+}
 if (e.code == "ArrowLeft") {
-x_speed = -10;}
+x_speed = -50;
+}
 if (e.code == "ArrowRight") {
-x_speed = 10;}
+x_speed = 50;
+}
 }function atleistiMygtuka(e) {
 if (e.code == "ArrowDown") {
-y_speed = 0;}
+y_speed = 0;
+}
 if (e.code == "ArrowUp") {
-y_speed = 0;}
+y_speed = 0;
+}
 if (e.code == "ArrowLeft") {
-x_speed = 0;}
+x_speed = 0;
+}
 if (e.code == "ArrowRight") {
-x_speed = 0;}
-document.addEventListener("keydown", spaustiMygtuka);
+x_speed = 0;
+}
+}document.addEventListener("keydown", spaustiMygtuka);
 document.addEventListener("keyup", atleistiMygtuka);
 </script>
 </body>
